@@ -17,15 +17,19 @@ const displayPosts = (posts) => {
         return;
     }
 
-    posts.forEach(post => {
-        const postElement = document.createElement('li');
-        postElement.classList.add('post');
-        postElement.innerHTML = `
-            <h2 class="post-title">${post.title}</h2>
-            <p class="post-body">${post.body}</p>`;
+    try {
+        posts.forEach(post => {
+            const postElement = document.createElement('li');
+            postElement.classList.add('post');
+            postElement.innerHTML = `
+                <h2 class="post-title">${post.title}</h2>
+                <p class="post-body">${post.body}</p>`;
 
-        postList.appendChild(postElement);
-    });
+            postList.appendChild(postElement);
+        });
+    } catch (error) {
+        throw new Error('Error manipulating DOM: ' + error.message);
+    }
 }
 
 //getPosts();
