@@ -1,4 +1,5 @@
 const getPosts = async () => {
+    const url = 'https://jsonplaceholder.typicode.com/posts';
     try {
         const response = await fetch(url);
         const data = await response.json();
